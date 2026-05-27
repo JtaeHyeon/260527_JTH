@@ -1,10 +1,5 @@
-/README.md
-/data
-/lib
-/node_modules
-/package-lock.json
-/package.json
-/public
-/routes
-/server.js
-/views
+node_modules/
+.DS_Store
+*.log
+.env
+.env.local
