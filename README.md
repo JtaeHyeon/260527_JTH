@@ -26,32 +26,45 @@
 
 ## 기술 스택
 
-| 영역      | 도구                                           |
-| --------- | ---------------------------------------------- |
-| Runtime   | Node.js v20 LTS 이상                           |
-| 패키지    | npm v10 이상                                   |
-| 서버      | Express 4.x                                    |
-| 템플릿    | EJS (서버 사이드 렌더링, layout 동적 include)  |
-| 프론트    | Bootstrap 5.3 (CDN) + Vanilla JS               |
-| 폰트      | Noto Serif KR · Gowun Batang · Black Han Sans (Google Fonts) |
+| 영역    | 도구                                                         |
+| ------- | ------------------------------------------------------------ |
+| Runtime | Node.js v20 LTS 이상                                         |
+| 패키지  | npm v10 이상                                                 |
+| 서버    | Express 4.x                                                  |
+| 템플릿  | EJS (서버 사이드 렌더링, layout 동적 include)                |
+| 프론트  | Bootstrap 5.3 (CDN) + Vanilla JS                             |
+| 폰트    | Noto Serif KR · Gowun Batang · Black Han Sans (Google Fonts) |
 
 ---
 
 ## 실행
+### 배포 사이트 접속
+
+본 프로젝트는 Vercel을 통해 배포되어 있으며, 아래 주소에서 바로 확인할 수 있습니다.
+
+```text
+https://260527-seven.vercel.app/
+```
+
+---
 
 ### 로컬 실행
+
+프로젝트를 로컬에서 실행하려면 아래 명령어를 사용합니다.
+
 ```bash
 # 1. 의존성 설치
 npm install
 
-# 2. 개발 서버 (nodemon 자동 재시작)
+# 2. 개발 서버 실행
 npm run dev
-
-# 3. 일반 실행
-npm start
 ```
 
-브라우저에서 [http://localhost:3000](http://localhost:3000) 접속.
+브라우저에서 아래 주소로 접속합니다.
+
+```text
+http://localhost:3000
+```
 
 ### GitHub Actions 실행
 GitHub Actions를 이용하여 CI 워크플로우 내에서 실행 및 테스트할 수 있습니다.
