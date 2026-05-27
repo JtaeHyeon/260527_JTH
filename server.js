@@ -14,9 +14,9 @@ app.set('views', path.join(__dirname, 'views'));
 // 정적 자원: /public 하위만 외부 노출
 app.use(express.static(path.join(__dirname, 'public')));
 
-// 라우트는 Phase 3에서 등록 예정
-// app.use('/', require('./routes/index'));
-// app.use('/menu', require('./routes/menu'));
+// 라우트 등록 — 1파일 = 1 URL prefix (AGENTS.md §5.4)
+app.use('/', require('./routes/index'));
+app.use('/menu', require('./routes/menu'));
 
 // 404 — 길 잃은 망자
 app.use((req, res) => {
