@@ -39,6 +39,7 @@
 
 ## 실행
 
+### 로컬 실행
 ```bash
 # 1. 의존성 설치
 npm install
@@ -51,6 +52,18 @@ npm start
 ```
 
 브라우저에서 [http://localhost:3000](http://localhost:3000) 접속.
+
+### GitHub Actions 실행
+GitHub Actions를 이용하여 CI 워크플로우 내에서 실행 및 테스트할 수 있습니다.
+```yaml
+# 예시 워크플로우 실행 단계
+- name: Install dependencies
+  run: npm ci
+
+- name: Start server in background
+  run: npm start &
+```
+
 
 ---
 
