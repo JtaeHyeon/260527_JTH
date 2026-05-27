@@ -449,8 +449,65 @@ img {
   font-size: var(--font-size-small);
 }
 
-/* ── 12. 404 / 에러 화면(기본 텍스트 응답이 사용되므로 차후 확장) ─── */
-/* (Phase 6에서 전용 뷰 만들면 여기 보강) */
+/* ── 12. 애니메이션 ────────────────────────────────────────────────── */
+
+/* (a) 등불 깜빡임 — 로고·강조 텍스트 */
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 12px var(--accent-flame);
+  }
+  50% {
+    opacity: 0.85;
+    text-shadow: 0 0 6px var(--accent-flame);
+  }
+}
+.flicker {
+  animation: flicker 3s ease-in-out infinite;
+}
+
+/* (b) 도깨비불 부유 — 비밀 메뉴 뱃지 */
+@keyframes float-ghost {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+.float-ghost {
+  animation: float-ghost 4s ease-in-out infinite;
+}
+
+/* (c) 카드 등장 — JS 환경(.js)에서만 초기 invisible. NoJS는 즉시 보임 */
+@keyframes rise-from-mist {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+.js .menu-card {
+  opacity: 0;
+  transform: translateY(20px);
+  filter: blur(8px);
+}
+.js .menu-card.is-visible {
+  animation: rise-from-mist 0.6s ease-out forwards;
+}
+
+/* (d) hover 등불 점등 — 메뉴 카드 */
+.menu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(244, 163, 0, 0.15);
+}
 
 /* ── 13. prefers-reduced-motion ────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
@@ -459,6 +516,14 @@ img {
   *::after {
     animation-duration: 0.001s !important;
     transition-duration: 0.001s !important;
+  }
+  /* JS 게이트로 숨겨둔 카드도 즉시 정상 표시 (JS 미실행/지연 대비 안전망) */
+  .js .menu-card,
+  .js .menu-card.is-visible {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
   }
 }
 

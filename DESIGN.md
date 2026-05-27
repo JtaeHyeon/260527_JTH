@@ -273,7 +273,7 @@ Bootstrap 클래스: `col-12 col-sm-6 col-lg-4`
 
 ### 5.3. 애니메이션
 
-**(a) 등불 깜빡임 `flicker`** — 로고·강조 텍스트
+**(a) 등불 깜빡임 `flicker`** — 로고·강조 텍스트 (현재 적용: `.site-nav__lantern`)
 
 ```css
 @keyframes flicker {
@@ -292,7 +292,7 @@ Bootstrap 클래스: `col-12 col-sm-6 col-lg-4`
 }
 ```
 
-**(b) 도깨비불 부유 `float-ghost`** — 비밀 메뉴 뱃지
+**(b) 도깨비불 부유 `float-ghost`** — 비밀 메뉴 뱃지 (현재 적용: `category === '비밀메뉴'`인 카드/상세의 `.badge--secret`)
 
 ```css
 @keyframes float-ghost {
@@ -328,6 +328,8 @@ Bootstrap 클래스: `col-12 col-sm-6 col-lg-4`
 
 - 카드는 진입 시 0.6초에 걸쳐 fade-in
 - IntersectionObserver로 화면에 들어올 때 트리거
+- **JS 게이트(.js) 규칙**: `<html>` 요소에 `.js` 클래스가 붙은 경우에만 카드 초기 invisible. NoJS 사용자는 즉시 정상 표시 (head inline script가 `.js`를 즉시 추가하여 FOUC 회피)
+- IntersectionObserver 미지원·`prefers-reduced-motion` 사용자에게는 JS가 즉시 `.is-visible`을 부여하고, CSS에서도 reduce-motion 매체쿼리에서 `.js .menu-card`를 정상값으로 되돌리는 안전망 유지
 
 **(d) hover 등불 점등 `glow-on-hover`** — 메뉴 카드 hover
 
