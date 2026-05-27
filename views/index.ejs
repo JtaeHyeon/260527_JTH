@@ -1,0 +1,52 @@
+<section class="hero">
+  <div class="hero__mist" aria-hidden="true"></div>
+  <div class="container hero__inner text-center">
+    <h1 class="hero__title">저승 막걸리</h1>
+    <p class="hero__sub">「冥府 특선 — 살아생전 못다 한 술자리, 여기서 마저」</p>
+  </div>
+</section>
+
+<div class="container menu-page">
+  <% categories.forEach(function(cat) { %>
+    <% if (grouped[cat] && grouped[cat].length > 0) { %>
+      <section class="menu-section">
+        <h2 class="menu-section__title"><%= cat %></h2>
+        <div class="row g-4">
+          <% grouped[cat].forEach(function(item) { %>
+            <% const isSecret = item.category === '비밀메뉴'; %>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <article class="menu-card glass<%= isSecret ? ' menu-card--secret' : '' %>" data-id="<%= item.id %>">
+                <a href="/menu/<%= item.id %>" class="menu-card__link" aria-label="<%= item.name %> 상세 보기">
+                  <div
+                    class="menu-card__image"
+                    style="background-image: url('<%= item.image %>')"
+                    role="img"
+                    aria-label="<%= item.name %> 이미지"
+                  ></div>
+                  <div class="menu-card__body">
+                    <div>
+                      <span class="badge <%= isSecret ? 'badge--secret' : 'badge--category' %>"><%= item.category %></span>
+                    </div>
+                    <h3 class="menu-card__title"><%= item.name %></h3>
+                    <p class="menu-card__price"><%= item.price %></p>
+                    <p class="menu-card__desc"><%= item.description %></p>
+                    <div class="menu-card__meta">
+                      <% if (item.warning) { %>
+                        <span class="badge badge--warning">⚠ <%= item.warning %></span>
+                      <% } %>
+                      <% if (item.tags && item.tags.length) { %>
+                        <% item.tags.forEach(function(tag) { %>
+                          <span class="badge badge--tag">#<%= tag %></span>
+                        <% }); %>
+                      <% } %>
+                    </div>
+                  </div>
+                </a>
+              </article>
+            </div>
+          <% }); %>
+        </div>
+      </section>
+    <% } %>
+  <% }); %>
+</div>

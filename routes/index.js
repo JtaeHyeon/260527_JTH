@@ -7,7 +7,8 @@ const { getAllMenus, getMenusByCategory, ALLOWED_CATEGORIES } = require('../lib/
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('index', {
+  res.render('layout', {
+    page: 'index',
     title: '저승 막걸리 — 망자(亡者) 전용 심야 주막',
     categories: ALLOWED_CATEGORIES,
     grouped: getMenusByCategory(),

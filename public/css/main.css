@@ -1,0 +1,472 @@
+/* =========================================================================
+   「저승 막걸리」 메인 스타일시트
+   - DESIGN.md의 단일 토큰 소스. 모든 헥스코드는 :root에 정의된다.
+   ========================================================================= */
+
+/* ── 1. 디자인 토큰 ─────────────────────────────────────────────────── */
+:root {
+  /* 배경 */
+  --bg-abyss: #0a0a0c;
+  --bg-ink: #14141a;
+  --bg-mist: #1f1b2e;
+  --bg-paper: #2a2530;
+
+  /* 강조 */
+  --accent-blood: #a31621;
+  --accent-blood-soft: #6e0f17;
+  --accent-flame: #f4a300;
+  --accent-ghost: #6ec3c9;
+
+  /* 텍스트 */
+  --text-bone: #ece6d6;
+  --text-paper: #c9c0a8;
+  --text-spirit: #7a7585;
+  --text-shadow: #4a4555;
+
+  /* 경계 */
+  --border-mist: rgba(236, 230, 214, 0.08);
+  --border-blood: rgba(163, 22, 33, 0.5);
+
+  /* 타이포 */
+  --font-display: 'Gowun Batang', serif;
+  --font-body: 'Noto Serif KR', serif;
+  --font-accent: 'Black Han Sans', sans-serif;
+
+  --font-size-display: 3.5rem;
+  --font-size-h1: 2.5rem;
+  --font-size-h2: 1.75rem;
+  --font-size-h3: 1.25rem;
+  --font-size-body: 1rem;
+  --font-size-small: 0.875rem;
+  --font-size-caption: 0.75rem;
+
+  --line-height-tight: 1.2;
+  --line-height-base: 1.6;
+
+  /* 간격 */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 5rem;
+}
+
+/* ── 2. 베이스 ─────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg-ink);
+  color: var(--text-bone);
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-base);
+  word-break: keep-all; /* 한국어 가독성 */
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Bootstrap 다크 톤 오버라이드 (배경/카드/모달) */
+.bg-body,
+.bg-light {
+  background: var(--bg-ink) !important;
+  color: var(--text-bone) !important;
+}
+
+/* ── 3. 공용 유틸 ──────────────────────────────────────────────────── */
+.glass {
+  background: rgba(31, 27, 46, 0.7); /* --bg-mist의 70% */
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid var(--border-mist);
+}
+
+.mist-gradient {
+  background: linear-gradient(
+    180deg,
+    rgba(110, 195, 201, 0.08) 0%,
+    rgba(20, 20, 26, 0) 100%
+  );
+}
+
+/* ── 4. 네비게이션 ─────────────────────────────────────────────────── */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(20, 20, 26, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-mist);
+}
+
+.site-nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-md);
+}
+
+.site-nav__brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--font-size-h3);
+  color: var(--text-bone);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.site-nav__lantern {
+  color: var(--accent-flame);
+  font-size: 1rem;
+  display: inline-block;
+}
+
+.site-nav__tagline {
+  font-family: var(--font-display);
+  color: var(--accent-flame);
+  font-size: var(--font-size-small);
+  letter-spacing: 0.1em;
+}
+
+/* ── 5. Hero ───────────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  padding: var(--space-2xl) 0;
+  overflow: hidden;
+}
+
+.hero__mist {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(110, 195, 201, 0.08) 0%,
+    rgba(20, 20, 26, 0) 100%
+  );
+  pointer-events: none;
+}
+
+.hero__inner {
+  position: relative;
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--font-size-display);
+  margin: 0 0 var(--space-md);
+  line-height: var(--line-height-tight);
+  color: var(--text-bone);
+}
+
+.hero__sub {
+  font-family: var(--font-body);
+  font-size: var(--font-size-h3);
+  color: var(--text-paper);
+  margin: 0;
+}
+
+/* ── 6. 메뉴 섹션 ──────────────────────────────────────────────────── */
+.menu-page {
+  padding: var(--space-xl) 0 var(--space-2xl);
+}
+
+.menu-section {
+  margin-bottom: var(--space-2xl);
+}
+
+.menu-section__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--font-size-h2);
+  color: var(--text-bone);
+  margin: 0 0 var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--border-mist);
+}
+
+.menu-section__title::before {
+  content: '「';
+  color: var(--accent-flame);
+  margin-right: var(--space-xs);
+}
+.menu-section__title::after {
+  content: '」';
+  color: var(--accent-flame);
+  margin-left: var(--space-xs);
+}
+
+/* ── 7. 메뉴 카드 ──────────────────────────────────────────────────── */
+.menu-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.menu-card__link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+}
+
+.menu-card__image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-paper) no-repeat center / cover;
+  border-bottom: 1px solid var(--border-mist);
+}
+
+.menu-card__body {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  flex: 1;
+}
+
+.menu-card__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--font-size-h3);
+  margin: 0;
+  color: var(--text-bone);
+}
+
+.menu-card__price {
+  font-family: var(--font-accent);
+  font-size: var(--font-size-h3);
+  color: var(--accent-blood);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.menu-card__desc {
+  color: var(--text-paper);
+  font-size: var(--font-size-small);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.menu-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: auto;
+  padding-top: var(--space-sm);
+}
+
+/* 비밀메뉴 카드 — 도깨비불 톤 */
+.menu-card--secret {
+  border-color: rgba(110, 195, 201, 0.3);
+}
+.menu-card--secret .menu-card__title {
+  color: var(--accent-ghost);
+}
+
+/* ── 8. 뱃지 ───────────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: var(--font-size-caption);
+  padding: 0.25em 0.6em;
+  border-radius: 4px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.badge--category {
+  background: transparent;
+  color: var(--accent-flame);
+  border: 1px solid var(--accent-flame);
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
+}
+
+.badge--warning {
+  background: var(--accent-blood);
+  color: var(--text-bone);
+  font-family: var(--font-accent);
+}
+
+.badge--secret {
+  background: rgba(110, 195, 201, 0.3);
+  color: var(--accent-ghost);
+  font-family: var(--font-accent);
+}
+
+.badge--tag {
+  background: var(--border-mist);
+  color: var(--text-paper);
+}
+
+/* ── 9. 버튼 ───────────────────────────────────────────────────────── */
+.btn-tavern {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid var(--accent-flame);
+  color: var(--accent-flame);
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font-display);
+  font-size: var(--font-size-body);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-tavern:hover {
+  background: var(--accent-flame);
+  color: var(--bg-ink);
+}
+
+.btn-blood {
+  display: inline-block;
+  background: var(--accent-blood);
+  border: 1px solid var(--accent-blood);
+  color: var(--text-bone);
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font-accent);
+  font-size: var(--font-size-body);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-blood:hover {
+  background: var(--accent-blood-soft);
+  border-color: var(--accent-blood-soft);
+}
+
+/* ── 10. 상세 페이지 ───────────────────────────────────────────────── */
+.detail-page {
+  padding: var(--space-xl) 0 var(--space-2xl);
+}
+
+.detail-page__back {
+  display: inline-block;
+  color: var(--text-spirit);
+  font-size: var(--font-size-small);
+  margin-bottom: var(--space-lg);
+  transition: color 0.3s ease;
+}
+.detail-page__back:hover {
+  color: var(--accent-flame);
+}
+
+.detail-card {
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.detail-card__image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-paper) no-repeat center / cover;
+}
+
+.detail-card__body {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.detail-card__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--font-size-h1);
+  margin: 0;
+  color: var(--text-bone);
+}
+
+.detail-card__price {
+  font-family: var(--font-accent);
+  font-size: var(--font-size-h2);
+  color: var(--accent-blood);
+  margin: 0;
+}
+
+.detail-card__desc {
+  font-size: var(--font-size-body);
+  color: var(--text-paper);
+  margin: 0;
+}
+
+.detail-card__warning {
+  padding: var(--space-md);
+  border-left: 3px solid var(--accent-blood);
+  background: rgba(163, 22, 33, 0.08);
+}
+.detail-card__warning p {
+  margin: var(--space-sm) 0 0;
+  color: var(--text-bone);
+  font-size: var(--font-size-small);
+}
+
+.detail-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+/* ── 11. 푸터 ──────────────────────────────────────────────────────── */
+.site-footer {
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--border-mist);
+  color: var(--text-spirit);
+  font-size: var(--font-size-small);
+}
+
+/* ── 12. 404 / 에러 화면(기본 텍스트 응답이 사용되므로 차후 확장) ─── */
+/* (Phase 6에서 전용 뷰 만들면 여기 보강) */
+
+/* ── 13. prefers-reduced-motion ────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001s !important;
+    transition-duration: 0.001s !important;
+  }
+}
+
+/* ── 14. 반응형 폰트 스케일 ────────────────────────────────────────── */
+@media (max-width: 575.98px) {
+  :root {
+    --font-size-display: 2.25rem;
+    --font-size-h1: 1.75rem;
+    --font-size-h2: 1.375rem;
+  }
+}

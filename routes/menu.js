@@ -9,7 +9,8 @@ const router = express.Router();
 router.get('/:id', (req, res, next) => {
   const item = getMenuById(req.params.id);
   if (!item) return next(); // 미지(未知)의 id → 전역 404 핸들러로 위임
-  res.render('detail', {
+  res.render('layout', {
+    page: 'detail',
     title: `${item.name} — 저승 막걸리`,
     item,
   });

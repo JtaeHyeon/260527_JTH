@@ -1,0 +1,36 @@
+<div class="container detail-page">
+  <a href="/" class="detail-page__back">← 메뉴판으로 돌아가기</a>
+
+  <% const isSecret = item.category === '비밀메뉴'; %>
+  <article class="detail-card glass<%= isSecret ? ' menu-card--secret' : '' %>">
+    <div
+      class="detail-card__image"
+      style="background-image: url('<%= item.image %>')"
+      role="img"
+      aria-label="<%= item.name %> 이미지"
+    ></div>
+    <div class="detail-card__body">
+      <div>
+        <span class="badge <%= isSecret ? 'badge--secret' : 'badge--category' %>"><%= item.category %></span>
+      </div>
+      <h1 class="detail-card__title"><%= item.name %></h1>
+      <p class="detail-card__price"><%= item.price %></p>
+      <p class="detail-card__desc"><%= item.description %></p>
+
+      <% if (item.warning) { %>
+        <div class="detail-card__warning" role="note">
+          <span class="badge badge--warning">⚠ 경고</span>
+          <p><%= item.warning %></p>
+        </div>
+      <% } %>
+
+      <% if (item.tags && item.tags.length) { %>
+        <div class="detail-card__tags" aria-label="태그">
+          <% item.tags.forEach(function(tag) { %>
+            <span class="badge badge--tag">#<%= tag %></span>
+          <% }); %>
+        </div>
+      <% } %>
+    </div>
+  </article>
+</div>

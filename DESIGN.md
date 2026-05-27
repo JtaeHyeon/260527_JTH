@@ -207,6 +207,37 @@ Bootstrap 클래스: `col-12 col-sm-6 col-lg-4`
 - 상단 안개 그라데이션 (5.2 참조)
 - 닫기 버튼: 우상단, `--text-spirit` 컬러
 
+### 4.6. 메뉴 카드 변형 `.menu-card--secret`
+
+- 비밀메뉴(`category === '비밀메뉴'`)에만 적용
+- 테두리: `rgba(110, 195, 201, 0.3)` (도깨비불 청록의 흐릿한 잔영)
+- 제목 컬러: `--accent-ghost`
+
+### 4.7. Hero 섹션 `.hero`
+
+- 컨테이너: `padding: --space-2xl 0`, `position: relative`, `overflow: hidden`
+- `.hero__mist` 절대 위치 레이어로 5.2 안개 그라데이션을 깐다
+- `.hero__title` Gowun Batang 700, `--font-size-display`
+- `.hero__sub` Noto Serif KR, `--text-paper`, `--font-size-h3`
+
+### 4.8. 메뉴 섹션 `.menu-section`
+
+- 카테고리 그룹 컨테이너. 하단 마진 `--space-2xl`
+- `.menu-section__title` Gowun Batang 700, `--font-size-h2`
+- 제목 앞뒤로 「」 자동 삽입 (`::before`/`::after`, `--accent-flame`)
+- 제목 하단에 `1px solid var(--border-mist)` 구분선
+
+### 4.9. 상세 카드 `.detail-card`
+
+- 글래스(4.1 메뉴 카드와 동일 글래스 토큰) + `max-width: 720px` 중앙 정렬
+- `.detail-card__warning` 좌측 3px `--accent-blood` 보더 + `rgba(163, 22, 33, 0.08)` 배경
+- 메뉴 상세는 별도 라우트 `/menu/:id`로 페이지 렌더 (4.5 모달은 차후 인페이지 미리보기용으로 보존)
+
+### 4.10. 사이트 네비/푸터
+
+- `.site-nav` 4.4 네비게이션 사양 구현체. 로고 옆 도깨비불은 `<span>` 텍스트 마커(`◉`)로 임시 구성, Phase 5에서 깜빡임 애니메이션 부여 예정
+- `.site-footer` 상단 경계선 `--border-mist`, 본문 `--text-spirit`, `--font-size-small`
+
 ---
 
 ## 5. 프리미엄 효과 (Premium Effects)
