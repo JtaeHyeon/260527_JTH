@@ -12,6 +12,9 @@ router.get('/:id', (req, res, next) => {
   res.render('layout', {
     page: 'detail',
     title: `${item.name} — 저승 막걸리`,
+    description: item.description,
+    ogType: 'article',
+    ogImage: item.image,
     item,
   });
 });
