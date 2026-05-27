@@ -80,6 +80,20 @@ a {
   text-decoration: none;
 }
 
+/* ── 접근성: 키보드 포커스 링 (글래스 카드 위에서도 보이도록 등불색) ── */
+:focus-visible {
+  outline: 2px solid var(--accent-flame);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.menu-card__link:focus-visible {
+  outline: none;
+}
+.menu-card:focus-within {
+  outline: 2px solid var(--accent-flame);
+  outline-offset: 3px;
+}
+
 img {
   max-width: 100%;
   display: block;

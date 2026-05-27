@@ -9,8 +9,8 @@
 <div class="container menu-page">
   <% categories.forEach(function(cat) { %>
     <% if (grouped[cat] && grouped[cat].length > 0) { %>
-      <section class="menu-section">
-        <h2 class="menu-section__title"><%= cat %></h2>
+      <section class="menu-section" aria-labelledby="cat-<%= cat %>">
+        <h2 id="cat-<%= cat %>" class="menu-section__title"><%= cat %></h2>
         <div class="row g-4">
           <% grouped[cat].forEach(function(item) { %>
             <% const isSecret = item.category === '비밀메뉴'; %>
@@ -20,8 +20,7 @@
                   <div
                     class="menu-card__image"
                     style="background-image: url('<%= item.image %>')"
-                    role="img"
-                    aria-label="<%= item.name %> 이미지"
+                    aria-hidden="true"
                   ></div>
                   <div class="menu-card__body">
                     <div>
