@@ -1,0 +1,19 @@
+{
+  "name": "jeoseung-makgeolli",
+  "version": "0.1.0",
+  "private": true,
+  "description": "「저승 막걸리」 — 망자만 입장 가능한 한국 전통 심야 주막 메뉴판",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "npx nodemon server.js"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  }
+}
