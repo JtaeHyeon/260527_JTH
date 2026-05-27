@@ -11,6 +11,26 @@
       "tags": ["전설", "9000년산", "씹는맛"]
     },
     {
+      "id": "2b4b2e2d-9dd8-4f87-91e4-8fd61c4d1001",
+      "name": "도깨비 감투전",
+      "category": "안주",
+      "price": "영혼 2개",
+      "description": "도깨비가 잔칫날 벗어두고 간 감투를 본떠 부친 바삭한 전. 한입 베어 물면 방금 숨긴 비밀 하나가 혀끝에서 미끄러진다.",
+      "warning": "거짓말 많은 자 섭취 주의",
+      "image": "/images/dokkaebi-gamtu-jeon.png",
+      "tags": ["도깨비", "바삭함", "비밀누설"]
+    },
+    {
+      "id": "6a52cbaf-6e9f-4d17-91c0-d3b1777e1002",
+      "name": "삼도천 어묵전골",
+      "category": "안주",
+      "price": "영혼 3개",
+      "description": "삼도천 나루에서 건져 올린 어묵을 푸른 불에 오래 끓여낸 전골. 국물을 떠마실 때마다 건너지 못한 사연 하나가 입안에서 풀어진다.",
+      "warning": "이승에 미련 많은 망자 과다섭취 금지",
+      "image": "/images/samdocheon-eomuk-jeongol.png",
+      "tags": ["국물안주", "뜨끈함", "회한"]
+    },
+    {
       "id": "8bea2caf-bf3f-4543-b459-a5728e171def",
       "name": "도깨비 막걸리",
       "category": "주류",
@@ -28,6 +48,16 @@
       "description": "긴 머리카락 사이에 박힌 흰 떡과 곶감. 단맛 끝에 짠 눈물이 비치니, 다 먹고 나면 무엇이 그리 서러웠는지 잊는다.",
       "image": "/images/cheonyeo-han.png",
       "tags": ["한정", "달고짠맛"]
+    },
+    {
+      "id": "f17a5c9e-3d6b-4e88-9a8c-6eaa8fd91004",
+      "name": "제삿상의 약과",
+      "category": "후식",
+      "price": "영혼 2개",
+      "description": "백 년 묵은 제삿상에서 돌아온 듯한 진한 꿀내음의 약과. 달콤한 맛 끝에 오래 참아온 그리움이 번져, 다 먹고 나면 누구를 그리워했는지조차 흐려진다.",
+      "warning": "눈물 많은 자 단독 섭취 주의",
+      "image": "/images/ancestral-yakgwa.png",
+      "tags": ["약과", "제삿상", "그리움"]
     },
     {
       "id": "001f8681-c402-4b35-958c-6b01e6f9ec42",
